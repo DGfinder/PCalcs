@@ -1,0 +1,3 @@
+case_id,phase,aircraft,weight_kg,pa_m,oat_c,headwind_ms,slope_pct,flap,bleeds,antiice,runway_len_m,expect_v1_kt,expect_vr_kt,expect_v2_kt,expect_vref_kt,expect_todr_m,expect_asdr_m,expect_bfl_m,expect_ldr_m
+1,takeoff,B1900D,7000,1000,20,0,0,0,true,false,2000,100,105,110,,1100,1200,1150,
+2,landing,B1900D,6500,1000,20,0,0,0,,false,2000,,,,115, , , ,1000
