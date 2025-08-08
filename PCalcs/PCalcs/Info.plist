@@ -12,5 +12,7 @@
 	<true/>
 	<key>UILaunchScreen</key>
 	<dict/>
+	<key>WXProxyBaseURL_Staging</key>
+	<string>https://staging-proxy.example.com</string>
 </dict>
 </plist>

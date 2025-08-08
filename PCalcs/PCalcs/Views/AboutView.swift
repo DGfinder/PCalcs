@@ -14,12 +14,21 @@ struct AboutView: View {
                 row("Build", Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "")
                 row("Calc Version", "1.0")
                 row("Data Pack", locator.dataPackManager.currentVersion())
-                row("Offline Mode", "Enabled")
+                row("Build Date", Date().formatted(date: .abbreviated, time: .shortened))
+                if let afm = dataPackAFMRevision() { row("AFM Revision", afm) }
+            }
+            Divider().background(Color.gray)
+            Group(alignment: .leading) {
+                Text("Advisory").font(.headline).foregroundColor(.white)
+                Text("Performance results are advisory. No extrapolation beyond certified data. The PIC remains responsible for AFM/SOP/regulatory compliance.")
+                    .font(.footnote).foregroundColor(.gray)
+            }
+            Group(alignment: .leading) {
+                Text("Privacy").font(.headline).foregroundColor(.white)
+                Text("No personal data collected. Weather/performance cached on device. Weather proxy may log ICAO and timestamp.")
+                    .font(.footnote).foregroundColor(.gray)
             }
             Spacer()
-            Text("AFM Data — No Extrapolation. This tool presents AFM-certified results for dry runway only in this version.")
-                .font(.footnote).foregroundColor(.gray)
-                .padding(.bottom)
         }
         .padding()
         .background(Color.black.ignoresSafeArea())
@@ -29,6 +38,11 @@ struct AboutView: View {
 
     private func row(_ k: String, _ v: String) -> some View {
         HStack { Text(k).foregroundColor(.white); Spacer(); Text(v).foregroundColor(.white) }
+    }
+
+    private func dataPackAFMRevision() -> String? {
+        // Placeholder: if provider exposes metadata later, surface here
+        return nil
     }
 }
 

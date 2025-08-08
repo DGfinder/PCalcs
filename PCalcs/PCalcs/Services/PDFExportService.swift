@@ -10,11 +10,11 @@ struct PDFReportMetadata {
 }
 
 protocol PDFExporting {
-    func makePDF(takeoff: TakeoffDisplay, landing: LandingDisplay, takeoffInputs: TakeoffFormInputs, landingInputs: LandingFormInputs, metadata: PDFReportMetadata, units: Units, registrationFull: String?, icao: String?, runwayIdent: String?, overrideUsed: Bool, oeiSummary: String?, companySummary: (pass: Bool, notes: [String])?, signatories: (String?, String?), wx: AirportWX?, appliedWX: [String], options: PDFExportOptions, technicalDetails: [(String,String)]?) -> Data?
+    func makePDF(takeoff: TakeoffDisplay, landing: LandingDisplay, takeoffInputs: TakeoffFormInputs, landingInputs: LandingFormInputs, metadata: PDFReportMetadata, units: Units, registrationFull: String?, icao: String?, runwayIdent: String?, overrideUsed: Bool, oeiSummary: String?, companySummary: (pass: Bool, notes: [String])?, signatories: (String?, String?), wx: AirportWX?, appliedWX: [String], options: PDFExportOptions, technicalDetails: [(String,String)]?, evidence: Evidence?) -> Data?
 }
 
 final class PDFExportService: PDFExporting {
-    func makePDF(takeoff: TakeoffDisplay, landing: LandingDisplay, takeoffInputs: TakeoffFormInputs, landingInputs: LandingFormInputs, metadata: PDFReportMetadata, units: Units, registrationFull: String?, icao: String?, runwayIdent: String?, overrideUsed: Bool, oeiSummary: String?, companySummary: (pass: Bool, notes: [String])?, signatories: (String?, String?), wx: AirportWX?, appliedWX: [String], options: PDFExportOptions, technicalDetails: [(String,String)]?) -> Data? {
+    func makePDF(takeoff: TakeoffDisplay, landing: LandingDisplay, takeoffInputs: TakeoffFormInputs, landingInputs: LandingFormInputs, metadata: PDFReportMetadata, units: Units, registrationFull: String?, icao: String?, runwayIdent: String?, overrideUsed: Bool, oeiSummary: String?, companySummary: (pass: Bool, notes: [String])?, signatories: (String?, String?), wx: AirportWX?, appliedWX: [String], options: PDFExportOptions, technicalDetails: [(String,String)]?, evidence: Evidence?) -> Data? {
         let page = CGRect(x: 0, y: 0, width: 612, height: 792)
         let renderer = UIGraphicsPDFRenderer(bounds: page)
         let inputsJSON = (try? JSONSerialization.data(withJSONObject: [
@@ -27,6 +27,7 @@ final class PDFExportService: PDFExporting {
             "ldr": landing.ldrM, "vref": landing.vrefKt
         ])) ?? Data()
         let appVer = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+        let appBuild = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? ""
         let hashInput = (appVer + "|" + metadata.calcVersion + "|" + metadata.dataPackVersion).data(using: .utf8)! + inputsJSON + outputsJSON
         let calcHash = SHA256.hash(data: hashInput).compactMap { String(format: "%02x", $0) }.joined()
 
@@ -59,7 +60,6 @@ final class PDFExportService: PDFExporting {
                 let df = DateFormatter(); df.dateFormat = "HHmm'Z'"; df.timeZone = .init(secondsFromGMT: 0)
                 var src = "\(wx.source) • As of \(df.string(from: wx.issued))"
                 let ageMin = Int(Date().timeIntervalSince(wx.issued) / 60)
-                // Suffix (STALE) if older than cache minutes (if needed, pass cache here)
                 if ageMin > 10 { src += " (STALE)" }
                 inputsRight.append(("WX Source", src))
                 if !appliedWX.isEmpty { inputsRight.append(("Applied", appliedWX.joined(separator: ", "))) }
@@ -105,14 +105,23 @@ final class PDFExportService: PDFExporting {
             // Versions & Hash
             draw(text: "Versions & Hash", at: CGPoint(x: contentInset, y: cursor.y), font: .boldSystemFont(ofSize: 14))
             cursor.y += 18
-            let versions: [(String,String)] = [
+            var versions: [(String,String)] = [
                 ("App", appVer),
+                ("Build", appBuild),
                 ("Calc", metadata.calcVersion),
                 ("Data Pack", metadata.dataPackVersion),
                 ("Calc Hash", calcHash)
             ]
-            drawTable(items: versions, at: CGRect(x: contentInset, y: cursor.y, width: page.width - 2*contentInset, height: 100))
-            cursor.y += 110
+            
+            // Add evidence information if available
+            if let evidence = evidence {
+                versions.append(("Evidence Hash", evidence.hashShort))
+                versions.append(("Evidence Sig", evidence.signatureShort))
+                versions.append(("Device Key", evidence.publicKeyShort))
+            }
+            
+            drawTable(items: versions, at: CGRect(x: contentInset, y: cursor.y, width: page.width - 2*contentInset, height: CGFloat(versions.count * 18 + 8)))
+            cursor.y += CGFloat(versions.count * 18 + 24)
 
             // Signatures
             draw(text: "Signatures", at: CGPoint(x: contentInset, y: cursor.y), font: .boldSystemFont(ofSize: 14))
@@ -121,10 +130,15 @@ final class PDFExportService: PDFExporting {
             drawSignatureLine(label: signatories.1 ?? "Crew 2", at: CGPoint(x: contentInset + 260, y: cursor.y))
             cursor.y += 60
 
-            // Legal
-            let legal = "AFM Data — No Extrapolation. This report assumes dry runway with AFM-approved configurations and company policy overlays where configured."
-            draw(text: legal, at: CGRect(x: contentInset, y: cursor.y, width: page.width - 2*contentInset, height: 60), font: .systemFont(ofSize: 10))
-            cursor.y += 70
+            // Legal & Privacy
+            let advisory = "Performance results are advisory. No extrapolation beyond certified data. The PIC remains responsible for AFM/SOP/regulatory compliance."
+            let privacy = "No personal data collected. Weather/performance cached on device. Weather proxy may log ICAO and timestamp."
+            draw(text: advisory, at: CGRect(x: contentInset, y: cursor.y, width: page.width - 2*contentInset, height: 40), font: .systemFont(ofSize: 10))
+            cursor.y += 44
+            draw(text: privacy, at: CGRect(x: contentInset, y: cursor.y, width: page.width - 2*contentInset, height: 40), font: .systemFont(ofSize: 10))
+            cursor.y += 44
+            draw(text: "AFM Revision: See Data Pack metadata (if available)", at: CGRect(x: contentInset, y: cursor.y, width: page.width - 2*contentInset, height: 20), font: .systemFont(ofSize: 10))
+            cursor.y += 28
 
             // Footer
             let utc = ISO8601DateFormatter().string(from: Date())

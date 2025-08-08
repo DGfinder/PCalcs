@@ -2,6 +2,8 @@ import SwiftUI
 
 struct SettingsView: View {
     @StateObject private var settings = SettingsStore()
+    @State private var lastSyncStatus = "Not synced"
+    @State private var isSync = false
 
     var body: some View {
         Form {
@@ -30,12 +32,75 @@ struct SettingsView: View {
                 #endif
                 Text("Source may be delayed; PIC must verify").font(.footnote).foregroundColor(.gray)
             }
+            
+            Section(header: Text("Cloud Sync")) {
+                Toggle("Enable Cloud Sync", isOn: $settings.cloudSyncEnabled)
+                if settings.cloudSyncEnabled {
+                    TextField("Supabase URL", text: $settings.supabaseURL)
+                        .textInputAutocapitalization(.never)
+                        .keyboardType(.URL)
+                    SecureField("Anon Key", text: $settings.supabaseAnonKey)
+                        .textInputAutocapitalization(.never)
+                    
+                    HStack {
+                        Button(action: syncNow) {
+                            HStack {
+                                if isSync {
+                                    ProgressView()
+                                        .scaleEffect(0.8)
+                                        .padding(.trailing, 4)
+                                }
+                                Text("Sync Now")
+                            }
+                        }
+                        .disabled(isSync || settings.supabaseURL.isEmpty || settings.supabaseAnonKey.isEmpty)
+                        
+                        Spacer()
+                    }
+                    
+                    Text(lastSyncStatus)
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+                    
+                    #if DEBUG
+                    if let pubKey = try? EvidenceSigner().pubkeyHex() {
+                        Text("Device Key: \(String(pubKey.prefix(10)))...")
+                            .font(.footnote)
+                            .foregroundColor(.blue)
+                    }
+                    #endif
+                }
+                Text("Evidence & calculation history backed up to cloud").font(.footnote).foregroundColor(.gray)
+            }
+            
             Section {
                 NavigationLink("About") { AboutView() }
+            }
+            Section(header: Text("Debug")) {
+                Toggle("Demo Lock", isOn: $settings.demoLockEnabled)
+                Toggle("Enable Screenshot Generator", isOn: $settings.screenshotGeneratorEnabled)
             }
         }
         .navigationTitle("Settings")
         .preferredColorScheme(.dark)
+    }
+    
+    private func syncNow() {
+        isSync = true
+        lastSyncStatus = "Syncing..."
+        
+        Task {
+            let cloudSync = CloudSyncManager()
+            await cloudSync.syncPending()
+            
+            await MainActor.run {
+                isSync = false
+                let formatter = DateFormatter()
+                formatter.dateStyle = .none
+                formatter.timeStyle = .short
+                lastSyncStatus = "Last sync: \(formatter.string(from: Date()))"
+            }
+        }
     }
 }
 
