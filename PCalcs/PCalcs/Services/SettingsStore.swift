@@ -19,14 +19,14 @@ final class SettingsStore: ObservableObject {
     @AppStorage("wxCacheDurationMinutes") var wxCacheDurationMinutes: Int = 10
     @AppStorage("wxProxyBaseURL") var wxProxyBaseURL: String = "https://proxy.example.com"
 
-    // Cloud sync
-    @AppStorage("cloudSyncEnabled") var cloudSyncEnabled: Bool = false
-    @AppStorage("supabaseURL") var supabaseURL: String = "https://mfencirxycxpwvzatonr.supabase.co"
-    @AppStorage("supabaseAnonKey") var supabaseAnonKey: String = ""
-    
     // Debug / RC
     @AppStorage("demoLockEnabled") var demoLockEnabled: Bool = true
     @AppStorage("screenshotGeneratorEnabled") var screenshotGeneratorEnabled: Bool = false
+
+    // Cloud Sync
+    @AppStorage("cloudSyncEnabled") var cloudSyncEnabled: Bool = false
+    @AppStorage("supabaseURL") var supabaseURL: String = ""
+    @AppStorage("supabaseAnonKey") var supabaseAnonKey: String = ""
 
     var units: Units {
         get { Units(rawValue: unitsRaw) ?? .metric }
