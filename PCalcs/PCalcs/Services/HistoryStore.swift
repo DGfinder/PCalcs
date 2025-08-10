@@ -60,7 +60,7 @@ struct HistoryEntry: Identifiable, Codable, Equatable {
     }
     
     /// Generates canonical payload for evidence hashing
-    func canonicalPayload() throws -> Data {
+    func canonicalPayload() async throws -> Data {
         let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
         
         // Decode inputs and results for canonical representation
@@ -174,7 +174,7 @@ final class HistoryStore: HistoryStoring {
         if updatedItem.evidenceHash == nil {
             let signer = EvidenceSigner()
             do {
-                let payload = try updatedItem.canonicalPayload()
+                let payload = try await updatedItem.canonicalPayload()
                 let evidence = try signer.generateEvidence(for: payload)
                 updatedItem.evidenceHash = evidence.hash
                 updatedItem.evidenceSignature = evidence.signature
