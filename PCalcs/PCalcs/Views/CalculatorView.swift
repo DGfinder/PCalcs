@@ -9,6 +9,7 @@ struct CalculatorView: View {
     
     // MARK: - UI State
     @State private var showingResults = false
+    @State private var calculationResult: TakeoffResult?
     
     var body: some View {
         NavigationView {
@@ -87,6 +88,7 @@ struct CalculatorView: View {
                 // Calculate Button Section  
                 Section {
                     Button(action: {
+                        calculationResult = calculatePerformance()
                         showingResults = true
                     }) {
                         HStack {
@@ -105,13 +107,17 @@ struct CalculatorView: View {
             .navigationBarTitleDisplayMode(.large)
         }
         .navigationViewStyle(StackNavigationViewStyle()) // Force single view on iPad
-        .alert("Calculation Complete", isPresented: $showingResults) {
-            Button("OK") {
-                showingResults = false
+        .sheet(isPresented: $showingResults) {
+            if let result = calculationResult {
+                ResultsView(
+                    result: result,
+                    inputs: CalculationInputs(
+                        weightKg: aircraftWeight,
+                        temperatureC: temperature,
+                        runwayLengthM: runwayLength
+                    )
+                )
             }
-        } message: {
-            let result = calculatePerformance()
-            Text(result.alertSummary)
         }
     }
     
