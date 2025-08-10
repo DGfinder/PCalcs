@@ -1,11 +1,11 @@
 import Foundation
 
-struct CloudLayer: Codable, Equatable {
+public struct CloudLayer: Codable, Equatable {
     let amount: String
     let baseFtAgl: Int?
 }
 
-struct AirportWX: Codable, Equatable {
+public struct AirportWX: Codable, Equatable {
     let icao: String
     let issued: Date
     let source: String

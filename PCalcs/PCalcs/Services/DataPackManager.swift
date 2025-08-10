@@ -10,19 +10,19 @@ public protocol DataPackManaging {
 public final class DataPackManager: DataPackManaging {
     private let internalProvider: DataPackProvider
 
-    init(provider: DataPackProvider = StubDataPackProvider()) {
+    public init(provider: DataPackProvider = StubDataPackProvider()) {
         self.internalProvider = provider
     }
 
-    var provider: DataPackProvider { internalProvider }
+    public var provider: DataPackProvider { internalProvider }
 
-    func loadBundledIfNeeded() throws {
+    public func loadBundledIfNeeded() throws {
         // Stub: In production, locate bundled or synced SQLite file, validate signature, and prepare GRDB database pool
         // Validate signature (stub)
         _ = validateSignature()
     }
 
-    func currentVersion() -> String {
+    public func currentVersion() -> String {
         (try? internalProvider.dataPackVersion()) ?? "UNKNOWN"
     }
 

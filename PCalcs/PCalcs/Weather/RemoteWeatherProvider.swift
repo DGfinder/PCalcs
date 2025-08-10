@@ -5,7 +5,7 @@ public final class RemoteWeatherProvider: WeatherProvider {
     private let session: URLSession
     private let cache: WeatherCache
 
-    init(baseURL: URL, session: URLSession = .shared, cache: WeatherCache = WeatherCache()) {
+    public init(baseURL: URL, session: URLSession = .shared, cache: WeatherCache = WeatherCache()) {
         self.baseURL = baseURL
         self.session = session
         self.cache = cache

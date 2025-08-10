@@ -9,7 +9,7 @@ public protocol PerformanceCalculatorAdapting {
 public final class PerformanceCalculatorAdapter: PerformanceCalculatorAdapting {
     private let b1900Calc: PerformanceCalculator = B1900DPerformanceCalculator()
 
-    func calculateTakeoff(_ inputs: TakeoffFormInputs, provider: DataPackProvider, corrections: CorrectionsLookup?) throws -> (TakeoffDisplay, [String]) {
+    public func calculateTakeoff(_ inputs: TakeoffFormInputs, provider: DataPackProvider, corrections: CorrectionsLookup?) throws -> (TakeoffDisplay, [String]) {
         let core = try b1900Calc.calculateTakeoff(inputs: inputs.toCoreInputs(), provider: provider)
         let corrected = try CorrectionsEngine.applyTakeoff(
             rawTODR: core.todrM,
@@ -33,7 +33,7 @@ public final class PerformanceCalculatorAdapter: PerformanceCalculatorAdapting {
         return (display, corrected.applied)
     }
 
-    func calculateLanding(_ inputs: LandingFormInputs, provider: DataPackProvider, corrections: CorrectionsLookup?) throws -> (LandingDisplay, [String]) {
+    public func calculateLanding(_ inputs: LandingFormInputs, provider: DataPackProvider, corrections: CorrectionsLookup?) throws -> (LandingDisplay, [String]) {
         let core = try b1900Calc.calculateLanding(inputs: inputs.toCoreInputs(), provider: provider)
         let corrected = try CorrectionsEngine.applyLanding(
             rawLDR: core.ldrM,

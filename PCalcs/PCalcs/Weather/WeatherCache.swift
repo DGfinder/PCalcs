@@ -3,16 +3,16 @@ import Foundation
 import GRDB
 #endif
 
-struct WXCacheEntry {
+public struct WXCacheEntry {
     let wx: AirportWX
     let expiry: Date
 }
 
-final class WeatherCache {
+public final class WeatherCache {
 #if canImport(GRDB)
     private let dbQueue: DatabaseQueue
 #endif
-    init() {
+    public init() {
 #if canImport(GRDB)
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("Weather.sqlite")
         dbQueue = try! DatabaseQueue(path: url.path)
@@ -29,7 +29,7 @@ final class WeatherCache {
 #endif
     }
 
-    func get(icao: String) throws -> WXCacheEntry? {
+    public func get(icao: String) throws -> WXCacheEntry? {
 #if canImport(GRDB)
         return try dbQueue.read { db in
             if let row = try Row.fetchOne(db, sql: "SELECT payload, expires_at_utc FROM wx_cache WHERE icao = ?", arguments: [icao]) {
@@ -46,7 +46,7 @@ final class WeatherCache {
 #endif
     }
 
-    func upsert(icao: String, wx: AirportWX, expiry: Date) throws {
+    public func upsert(icao: String, wx: AirportWX, expiry: Date) throws {
 #if canImport(GRDB)
         let enc = JSONEncoder(); enc.dateEncodingStrategy = .iso8601
         let payload = String(data: try enc.encode(wx), encoding: .utf8) ?? "{}"

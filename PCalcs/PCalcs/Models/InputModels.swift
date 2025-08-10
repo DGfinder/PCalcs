@@ -37,6 +37,10 @@ public struct LandingFormInputs: Equatable {
     var runwayLengthM: Double = 2000
     var flapSetting: Int = 0
     var antiIceOn: Bool = false
+    
+    // Computed properties for compatibility with PerformanceCalculatorAdapter
+    var headwindComponentMS: Double { windComponentKt * 0.514444 }
+    var runwaySlopePercent: Double { slopePercent }
 
     func toCoreInputs() -> LandingInputs {
         LandingInputs(

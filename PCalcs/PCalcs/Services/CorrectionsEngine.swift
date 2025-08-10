@@ -5,7 +5,7 @@ public protocol CorrectionsLookup {
     func breakpoints(corrType: String) throws -> [(x: Double, effect: Double)]
 }
 
-enum CorrectionsError: Error {
+public enum CorrectionsError: Error {
     case outOfCertifiedEnvelope(String)
     case dataUnavailable(String)
 }
@@ -14,7 +14,7 @@ enum CorrectionsError: Error {
 public struct CorrectionsEngine {
     /// Applies ordered corrections for takeoff distances (TODR/ASDR/BFL)
     /// Order: wind -> slope -> wet
-    static func applyTakeoff(rawTODR: Double, rawASDR: Double, rawBFL: Double,
+    public static func applyTakeoff(rawTODR: Double, rawASDR: Double, rawBFL: Double,
                              windMS: Double, slopePercent: Double, isWet: Bool,
                              lookup: CorrectionsLookup?) throws -> (todr: Double, asdr: Double, bfl: Double, applied: [String]) {
         var factors: [String: Double] = ["TODR": 1.0, "ASDR": 1.0, "BFL": 1.0]
@@ -46,7 +46,7 @@ public struct CorrectionsEngine {
 
     /// Applies ordered corrections for landing distance (LDR)
     /// Order: wind -> slope -> wet
-    static func applyLanding(rawLDR: Double, windMS: Double, slopePercent: Double, isWet: Bool, lookup: CorrectionsLookup?) throws -> (ldr: Double, applied: [String]) {
+    public static func applyLanding(rawLDR: Double, windMS: Double, slopePercent: Double, isWet: Bool, lookup: CorrectionsLookup?) throws -> (ldr: Double, applied: [String]) {
         var factor = 1.0
         var applied: [String] = []
         if let lookup {
@@ -95,14 +95,14 @@ public struct CorrectionsEngine {
 #if canImport(GRDB)
 import GRDB
 
-final class GRDBCorrectionsLookup: CorrectionsLookup {
+public final class GRDBCorrectionsLookup: CorrectionsLookup {
     private let dbQueue: DatabaseQueue
 
-    init(databaseURL: URL) throws {
+    public init(databaseURL: URL) throws {
         self.dbQueue = try DatabaseQueue(path: databaseURL.path)
     }
 
-    func breakpoints(corrType: String) throws -> [(x: Double, effect: Double)] {
+    public func breakpoints(corrType: String) throws -> [(x: Double, effect: Double)] {
         try dbQueue.read { db in
             let rows = try Row.fetchAll(db, sql: "SELECT value, effect FROM corrections WHERE aircraft = ? AND corr_type = ? AND axis = 'x' ORDER BY value ASC", arguments: ["B1900D", corrType])
             guard !rows.isEmpty else { throw CorrectionsError.dataUnavailable("No corrections for type=\(corrType)") }
