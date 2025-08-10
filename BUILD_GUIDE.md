@@ -1,15 +1,22 @@
 # PCalcs Build Guide - Step by Step
 
-## Current Status: Ultra-Minimal Hello World ✅
+## Current Status: 90% Ready to Build! 🎯
 
-The app has been stripped down to **ONLY 2 SWIFT FILES** - guaranteed to build in Xcode.
+The app is **ALMOST READY** - just needs quick Xcode cleanup.
 
-### What Works Now:
+### What's Fixed:
 - ✅ Only 2 Swift files: PCalcsApp.swift + ContentView.swift
-- ✅ All complex dependencies moved to Backup/ folder
-- ✅ No GRDB, no ServiceLocator, no complex architecture
-- ✅ Simple ContentView with professional PCalcs branding
-- ✅ **GUARANTEED to build without errors**
+- ✅ All complex dependencies moved to Backup/ folder  
+- ✅ **AccentColor.colorset added** (blue aviation theme)
+- ✅ **AppIcon.appiconset fixed** (no missing file references)
+- ✅ Professional PCalcs branding ready
+
+### What Needs Xcode GUI Fix:
+- ❌ Remove PerfCalcCore package dependency (2 clicks in Xcode)
+- ❌ Remove GRDB package dependency (2 clicks in Xcode)  
+- ❌ Remove dead file references (right-click → delete)
+
+**See BUILD_STATUS.md for 3-minute fix instructions!**
 
 ---
 
