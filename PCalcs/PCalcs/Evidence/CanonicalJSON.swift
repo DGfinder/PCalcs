@@ -142,6 +142,22 @@ struct HistoryEntryCanonical: Codable {
     let runway_ident: String?
     let registration: String
     
+    // Memberwise initializer (restored after custom Codable implementation)
+    init(app_version: String, calc_version: String, pack_version: String, inputsJSON: [String: Any], outputsJSON: [String: Any], weatherRaw: WeatherCanonical?, overrideFlags: OverrideFlags, timestamps: Timestamps, aircraft: String, icao: String?, runway_ident: String?, registration: String) {
+        self.app_version = app_version
+        self.calc_version = calc_version
+        self.pack_version = pack_version
+        self.inputsJSON = inputsJSON
+        self.outputsJSON = outputsJSON
+        self.weatherRaw = weatherRaw
+        self.overrideFlags = overrideFlags
+        self.timestamps = timestamps
+        self.aircraft = aircraft
+        self.icao = icao
+        self.runway_ident = runway_ident
+        self.registration = registration
+    }
+    
     enum CodingKeys: String, CodingKey {
         case app_version, calc_version, pack_version
         case inputsJSON, outputsJSON
