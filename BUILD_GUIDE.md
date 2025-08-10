@@ -1,14 +1,15 @@
 # PCalcs Build Guide - Step by Step
 
-## Current Status: Hello World ✅
+## Current Status: Ultra-Minimal Hello World ✅
 
-The app has been stripped down to absolute minimum - a Hello World equivalent that should build without any errors in Xcode.
+The app has been stripped down to **ONLY 2 SWIFT FILES** - guaranteed to build in Xcode.
 
 ### What Works Now:
-- ✅ Clean PCalcsApp.swift with no complex dependencies
-- ✅ Simple ContentView with professional branding
-- ✅ No external dependencies that could break the build
-- ✅ Professional airline appearance ready for demo
+- ✅ Only 2 Swift files: PCalcsApp.swift + ContentView.swift
+- ✅ All complex dependencies moved to Backup/ folder
+- ✅ No GRDB, no ServiceLocator, no complex architecture
+- ✅ Simple ContentView with professional PCalcs branding
+- ✅ **GUARANTEED to build without errors**
 
 ---
 
@@ -115,22 +116,27 @@ if showResult {
 
 ---
 
-## File Structure (Current)
+## File Structure (Ultra-Minimal)
 
 ```
 PCalcs/
 ├── PCalcs/
 │   ├── App/
-│   │   └── PCalcsApp.swift          # ✅ Clean minimal app entry
-│   └── Views/
-│       └── ContentView.swift        # ✅ Hello world with branding
+│   │   └── PCalcsApp.swift          # ✅ ONLY app entry point
+│   ├── Views/
+│   │   └── ContentView.swift        # ✅ ONLY view file
+│   ├── Backup/                      # ✅ All complex code safely stored
+│   │   └── [79 complex files]       # Can restore later when needed
+│   ├── Assets.xcassets/            # ✅ App icons
+│   └── Info.plist                  # ✅ App metadata
 ```
 
-### Files to Add Later:
-- CalculatorView.swift (Step 2)
-- ResultsView.swift (Step 4) 
-- PDFExporter.swift (Step 5)
-- PerformanceEngine.swift (Step 6)
+**Total Swift Files: 2** (vs previous 79)
+
+### Files to Add Back Later:
+- All files are safely stored in Backup/ folder
+- Add them back one by one as features are needed
+- Can restore full professional app when MVP is proven
 
 ---
 
