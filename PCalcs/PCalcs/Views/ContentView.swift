@@ -23,9 +23,14 @@ struct ContentView: View {
                         .foregroundColor(.secondary)
                 }
                 
-                // Coming Soon Button
-                Button("Launch Calculator") {
-                    // TODO: Add functionality
+                // Launch Calculator Button
+                NavigationLink(destination: CalculatorView()) {
+                    HStack {
+                        Image(systemName: "function")
+                        Text("Launch Calculator")
+                    }
+                    .frame(maxWidth: .infinity)
+                    .foregroundColor(.white)
                 }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
