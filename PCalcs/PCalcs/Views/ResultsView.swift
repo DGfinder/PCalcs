@@ -373,19 +373,7 @@ struct ResultsView: View {
     }
 }
 
-// MARK: - Supporting Data Structure
-
-struct CalculationInputs {
-    let weightKg: Double
-    let temperatureC: Double
-    let runwayLengthM: Double
-    
-    init(weightKg: Double, temperatureC: Double, runwayLengthM: Double) {
-        self.weightKg = weightKg
-        self.temperatureC = temperatureC
-        self.runwayLengthM = runwayLengthM
-    }
-}
+// CalculationInputs and TakeoffResult are now defined in Models/CalculationModels.swift
 
 // MARK: - Preview
 
