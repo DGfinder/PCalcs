@@ -1,27 +1,50 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject private var locator: ServiceLocator
-
+    
     var body: some View {
-        TabView {
-            PerformanceFormView()
-                .tabItem { Label("Calculate", systemImage: "slider.horizontal.3") }
-
-            ResultsView()
-                .tabItem { Label("Results", systemImage: "list.bullet.rectangle") }
-
-            AircraftProfileView()
-                .tabItem { Label("Aircraft", systemImage: "airplane") }
+        NavigationView {
+            VStack(spacing: 40) {
+                
+                // Logo/Icon
+                Image(systemName: "airplane.circle.fill")
+                    .font(.system(size: 80))
+                    .foregroundColor(.blue)
+                
+                // Title
+                VStack(spacing: 10) {
+                    Text("PCalcs")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    
+                    Text("Beechcraft 1900D Performance Calculator")
+                        .font(.title2)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.secondary)
+                }
+                
+                // Coming Soon Button
+                Button("Launch Calculator") {
+                    // TODO: Add functionality
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.large)
+                
+                Spacer()
+                
+                // Footer
+                Text("Professional Performance Calculations\nfor Aviation Operations")
+                    .font(.caption)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.secondary)
+            }
+            .padding()
+            .navigationTitle("PCalcs")
         }
-        .environmentObject(PerformanceViewModel(
-            calculator: locator.calculatorAdapter,
-            dataPackManager: locator.dataPackManager
-        ))
+        .navigationViewStyle(StackNavigationViewStyle()) // Force single view on iPad
     }
 }
 
 #Preview {
     ContentView()
-        .environmentObject(ServiceLocator())
 }
