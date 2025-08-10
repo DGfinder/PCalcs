@@ -6,124 +6,558 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA0000100000000000000001 /* PCalcsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000010000000000000001 /* PCalcsApp.swift */; };
-		AA0000110000000000000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000020000000000000001 /* ContentView.swift */; };
-		AA0000120000000000000001 /* PerformanceFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000030000000000000001 /* PerformanceFormView.swift */; };
-		AA0000130000000000000001 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000040000000000000001 /* ResultsView.swift */; };
-		AA0000140000000000000001 /* AircraftProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000050000000000000001 /* AircraftProfileView.swift */; };
-		AA0000150000000000000001 /* PerformanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000060000000000000001 /* PerformanceViewModel.swift */; };
-		AA0000160000000000000001 /* PerformanceCalculatorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000070000000000000001 /* PerformanceCalculatorAdapter.swift */; };
-		AA0000170000000000000001 /* DataPackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000080000000000000001 /* DataPackManager.swift */; };
-		AA0000180000000000000001 /* PDFExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000090000000000000001 /* PDFExportService.swift */; };
-		AA0000190000000000000001 /* InputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000A0000000000000001 /* InputModels.swift */; };
-		AA00001A0000000000000001 /* OutputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000B0000000000000001 /* OutputModels.swift */; };
-		AA00001B0000000000000001 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000C0000000000000001 /* ServiceLocator.swift */; };
-		AA00001C0000000000000001 /* CoreShims.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA00000D0000000000000001 /* CoreShims.swift */; };
-		AA00001D0000000000000001 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA00000E0000000000000001 /* Info.plist */; };
+		AA0001010000000000000001 /* PCalcsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001000000000000000001 /* PCalcsApp.swift */; };
+		AA0001030000000000000001 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001020000000000000001 /* ServiceLocator.swift */; };
+		AA0001050000000000000001 /* InputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001040000000000000001 /* InputModels.swift */; };
+		AA0001070000000000000001 /* OutputModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001060000000000000001 /* OutputModels.swift */; };
+		AA0001090000000000000001 /* AirportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0001080000000000000001 /* AirportStore.swift */; };
+		AA000110B0000000000000001 /* BFLCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000110A0000000000000001 /* BFLCheck.swift */; };
+		AA000111B0000000000000001 /* CompanyLimitsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000111A0000000000000001 /* CompanyLimitsEngine.swift */; };
+		AA000112B0000000000000001 /* CoreShims.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000112A0000000000000001 /* CoreShims.swift */; };
+		AA000113B0000000000000001 /* CorrectionsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000113A0000000000000001 /* CorrectionsEngine.swift */; };
+		AA000114B0000000000000001 /* DataPackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000114A0000000000000001 /* DataPackManager.swift */; };
+		AA000115B0000000000000001 /* ErrorToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000115A0000000000000001 /* ErrorToastManager.swift */; };
+		AA000116B0000000000000001 /* GRDBDataPackProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000116A0000000000000001 /* GRDBDataPackProvider.swift */; };
+		AA000117B0000000000000001 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000117A0000000000000001 /* Haptics.swift */; };
+		AA000118B0000000000000001 /* HistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000118A0000000000000001 /* HistoryStore.swift */; };
+		AA000119B0000000000000001 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000119A0000000000000001 /* Logger.swift */; };
+		AA000120B0000000000000001 /* ObstacleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000120A0000000000000001 /* ObstacleEngine.swift */; };
+		AA000121B0000000000000001 /* PCalcsLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000121A0000000000000001 /* PCalcsLogger.swift */; };
+		AA000122B0000000000000001 /* PDFExportOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000122A0000000000000001 /* PDFExportOptions.swift */; };
+		AA000123B0000000000000001 /* PDFExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000123A0000000000000001 /* PDFExportService.swift */; };
+		AA000124B0000000000000001 /* PerfMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000124A0000000000000001 /* PerfMeter.swift */; };
+		AA000125B0000000000000001 /* PerformanceCalculatorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000125A0000000000000001 /* PerformanceCalculatorAdapter.swift */; };
+		AA000126B0000000000000001 /* PerformanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000126A0000000000000001 /* PerformanceViewModel.swift */; };
+		AA000127B0000000000000001 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000127A0000000000000001 /* SettingsStore.swift */; };
+		AA000128B0000000000000001 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000128A0000000000000001 /* Units.swift */; };
+		AA000130B0000000000000001 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000130A0000000000000001 /* AboutView.swift */; };
+		AA000131B0000000000000001 /* AdvancedDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000131A0000000000000001 /* AdvancedDetailsView.swift */; };
+		AA000132B0000000000000001 /* AircraftProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000132A0000000000000001 /* AircraftProfileView.swift */; };
+		AA000133B0000000000000001 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000133A0000000000000001 /* BannerView.swift */; };
+		AA000134B0000000000000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000134A0000000000000001 /* ContentView.swift */; };
+		AA000135B0000000000000001 /* EvidenceBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000135A0000000000000001 /* EvidenceBadgeView.swift */; };
+		AA000136B0000000000000001 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000136A0000000000000001 /* HistoryView.swift */; };
+		AA000137B0000000000000001 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000137A0000000000000001 /* HomeView.swift */; };
+		AA000138B0000000000000001 /* LimitingDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000138A0000000000000001 /* LimitingDetailsView.swift */; };
+		AA000139B0000000000000001 /* ModeBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000139A0000000000000001 /* ModeBarView.swift */; };
+		AA000140B0000000000000001 /* NewCalculationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000140A0000000000000001 /* NewCalculationView.swift */; };
+		AA000141B0000000000000001 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000141A0000000000000001 /* OnboardingView.swift */; };
+		AA000142B0000000000000001 /* PerfDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000142A0000000000000001 /* PerfDebugView.swift */; };
+		AA000143B0000000000000001 /* PerformanceFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000143A0000000000000001 /* PerformanceFormView.swift */; };
+		AA000144B0000000000000001 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000144A0000000000000001 /* ResultsView.swift */; };
+		AA000145B0000000000000001 /* RunwayMarginBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000145A0000000000000001 /* RunwayMarginBar.swift */; };
+		AA000146B0000000000000001 /* RunwayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000146A0000000000000001 /* RunwayPickerView.swift */; };
+		AA000147B0000000000000001 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000147A0000000000000001 /* SettingsView.swift */; };
+		AA000148B0000000000000001 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000148A0000000000000001 /* SplashView.swift */; };
+		AA000149B0000000000000001 /* ValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000149A0000000000000001 /* ValidationView.swift */; };
+		AA000150B0000000000000001 /* WXChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000150A0000000000000001 /* WXChipView.swift */; };
+		AA000151B0000000000000001 /* WhatIfSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000151A0000000000000001 /* WhatIfSheet.swift */; };
+		AA000152B0000000000000001 /* WindRunwayTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000152A0000000000000001 /* WindRunwayTile.swift */; };
+		AA000160B0000000000000001 /* AirportWX.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000160A0000000000000001 /* AirportWX.swift */; };
+		AA000161B0000000000000001 /* DensityAltitude.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000161A0000000000000001 /* DensityAltitude.swift */; };
+		AA000162B0000000000000001 /* RemoteWeatherProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000162A0000000000000001 /* RemoteWeatherProvider.swift */; };
+		AA000163B0000000000000001 /* WeatherCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000163A0000000000000001 /* WeatherCache.swift */; };
+		AA000164B0000000000000001 /* WeatherProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000164A0000000000000001 /* WeatherProvider.swift */; };
+		AA000165B0000000000000001 /* WindMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000165A0000000000000001 /* WindMath.swift */; };
+		AA000170B0000000000000001 /* CanonicalJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000170A0000000000000001 /* CanonicalJSON.swift */; };
+		AA000171B0000000000000001 /* DeviceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000171A0000000000000001 /* DeviceKeys.swift */; };
+		AA000172B0000000000000001 /* EvidenceSigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000172A0000000000000001 /* EvidenceSigner.swift */; };
+		AA000180B0000000000000001 /* CloudSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000180A0000000000000001 /* CloudSyncManager.swift */; };
+		AA000190B0000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA000190A0000000000000001 /* Assets.xcassets */; };
+		AA000191B0000000000000001 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA0001910000000000000001 /* Info.plist */; };
+		AA000200B0000000000000001 /* PerfCalcCore in Frameworks */ = {isa = PBXBuildFile; productRef = AA000200A0000000000000001 /* PerfCalcCore */; };
+		AA000300B0000000000000001 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = AA000300A0000000000000001 /* GRDB */; };
+		/* Test files */
+		AA000400B0000000000000001 /* CanonicalJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000400A0000000000000001 /* CanonicalJSONTests.swift */; };
+		AA000401B0000000000000001 /* CloudSyncManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000401A0000000000000001 /* CloudSyncManagerTests.swift */; };
+		AA000402B0000000000000001 /* EvidenceSignerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000402A0000000000000001 /* EvidenceSignerTests.swift */; };
+		AA000403B0000000000000001 /* GRDBDataPackProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000403A0000000000000001 /* GRDBDataPackProviderTests.swift */; };
+		AA000404B0000000000000001 /* PDFOptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000404A0000000000000001 /* PDFOptionsTests.swift */; };
+		AA000405B0000000000000001 /* StableStringifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000405A0000000000000001 /* StableStringifyTests.swift */; };
+		AA000406B0000000000000001 /* VerifyEdgeFunctionStubTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000406A0000000000000001 /* VerifyEdgeFunctionStubTest.swift */; };
+		AA000407B0000000000000001 /* ViewModelWXApplyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000407A0000000000000001 /* ViewModelWXApplyTests.swift */; };
+		AA000408B0000000000000001 /* WXChipColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000408A0000000000000001 /* WXChipColorTests.swift */; };
+		AA000409B0000000000000001 /* WeatherCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000409A0000000000000001 /* WeatherCacheTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AA0000000000000000000001 /* PCalcs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PCalcs.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA0000010000000000000001 /* PCalcsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCalcsApp.swift; sourceTree = "<group>"; };
-		AA0000020000000000000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		AA0000030000000000000001 /* PerformanceFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceFormView.swift; sourceTree = "<group>"; };
-		AA0000040000000000000001 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
-		AA0000050000000000000001 /* AircraftProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftProfileView.swift; sourceTree = "<group>"; };
-		AA0000060000000000000001 /* PerformanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceViewModel.swift; sourceTree = "<group>"; };
-		AA0000070000000000000001 /* PerformanceCalculatorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceCalculatorAdapter.swift; sourceTree = "<group>"; };
-		AA0000080000000000000001 /* DataPackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPackManager.swift; sourceTree = "<group>"; };
-		AA0000090000000000000001 /* PDFExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFExportService.swift; sourceTree = "<group>"; };
-		AA00000A0000000000000001 /* InputModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputModels.swift; sourceTree = "<group>"; };
-		AA00000B0000000000000001 /* OutputModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputModels.swift; sourceTree = "<group>"; };
-		AA00000C0000000000000001 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
-		AA00000D0000000000000001 /* CoreShims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreShims.swift; sourceTree = "<group>"; };
-		AA00000E0000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA000000F0000000000000001 /* PCalcs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PCalcs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA000000T0000000000000001 /* PCalcsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCalcsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0001000000000000000001 /* PCalcsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCalcsApp.swift; sourceTree = "<group>"; };
+		AA0001020000000000000001 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		AA0001040000000000000001 /* InputModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputModels.swift; sourceTree = "<group>"; };
+		AA0001060000000000000001 /* OutputModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputModels.swift; sourceTree = "<group>"; };
+		AA0001080000000000000001 /* AirportStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportStore.swift; sourceTree = "<group>"; };
+		AA000110A0000000000000001 /* BFLCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFLCheck.swift; sourceTree = "<group>"; };
+		AA000111A0000000000000001 /* CompanyLimitsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyLimitsEngine.swift; sourceTree = "<group>"; };
+		AA000112A0000000000000001 /* CoreShims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreShims.swift; sourceTree = "<group>"; };
+		AA000113A0000000000000001 /* CorrectionsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectionsEngine.swift; sourceTree = "<group>"; };
+		AA000114A0000000000000001 /* DataPackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPackManager.swift; sourceTree = "<group>"; };
+		AA000115A0000000000000001 /* ErrorToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorToastManager.swift; sourceTree = "<group>"; };
+		AA000116A0000000000000001 /* GRDBDataPackProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRDBDataPackProvider.swift; sourceTree = "<group>"; };
+		AA000117A0000000000000001 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		AA000118A0000000000000001 /* HistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStore.swift; sourceTree = "<group>"; };
+		AA000119A0000000000000001 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		AA000120A0000000000000001 /* ObstacleEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleEngine.swift; sourceTree = "<group>"; };
+		AA000121A0000000000000001 /* PCalcsLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCalcsLogger.swift; sourceTree = "<group>"; };
+		AA000122A0000000000000001 /* PDFExportOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFExportOptions.swift; sourceTree = "<group>"; };
+		AA000123A0000000000000001 /* PDFExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFExportService.swift; sourceTree = "<group>"; };
+		AA000124A0000000000000001 /* PerfMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfMeter.swift; sourceTree = "<group>"; };
+		AA000125A0000000000000001 /* PerformanceCalculatorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceCalculatorAdapter.swift; sourceTree = "<group>"; };
+		AA000126A0000000000000001 /* PerformanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceViewModel.swift; sourceTree = "<group>"; };
+		AA000127A0000000000000001 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		AA000128A0000000000000001 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
+		AA000130A0000000000000001 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		AA000131A0000000000000001 /* AdvancedDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedDetailsView.swift; sourceTree = "<group>"; };
+		AA000132A0000000000000001 /* AircraftProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftProfileView.swift; sourceTree = "<group>"; };
+		AA000133A0000000000000001 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		AA000134A0000000000000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA000135A0000000000000001 /* EvidenceBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvidenceBadgeView.swift; sourceTree = "<group>"; };
+		AA000136A0000000000000001 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		AA000137A0000000000000001 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AA000138A0000000000000001 /* LimitingDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitingDetailsView.swift; sourceTree = "<group>"; };
+		AA000139A0000000000000001 /* ModeBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeBarView.swift; sourceTree = "<group>"; };
+		AA000140A0000000000000001 /* NewCalculationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCalculationView.swift; sourceTree = "<group>"; };
+		AA000141A0000000000000001 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		AA000142A0000000000000001 /* PerfDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfDebugView.swift; sourceTree = "<group>"; };
+		AA000143A0000000000000001 /* PerformanceFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceFormView.swift; sourceTree = "<group>"; };
+		AA000144A0000000000000001 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		AA000145A0000000000000001 /* RunwayMarginBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunwayMarginBar.swift; sourceTree = "<group>"; };
+		AA000146A0000000000000001 /* RunwayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunwayPickerView.swift; sourceTree = "<group>"; };
+		AA000147A0000000000000001 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AA000148A0000000000000001 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		AA000149A0000000000000001 /* ValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationView.swift; sourceTree = "<group>"; };
+		AA000150A0000000000000001 /* WXChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXChipView.swift; sourceTree = "<group>"; };
+		AA000151A0000000000000001 /* WhatIfSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIfSheet.swift; sourceTree = "<group>"; };
+		AA000152A0000000000000001 /* WindRunwayTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindRunwayTile.swift; sourceTree = "<group>"; };
+		AA000160A0000000000000001 /* AirportWX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportWX.swift; sourceTree = "<group>"; };
+		AA000161A0000000000000001 /* DensityAltitude.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DensityAltitude.swift; sourceTree = "<group>"; };
+		AA000162A0000000000000001 /* RemoteWeatherProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteWeatherProvider.swift; sourceTree = "<group>"; };
+		AA000163A0000000000000001 /* WeatherCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCache.swift; sourceTree = "<group>"; };
+		AA000164A0000000000000001 /* WeatherProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherProvider.swift; sourceTree = "<group>"; };
+		AA000165A0000000000000001 /* WindMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindMath.swift; sourceTree = "<group>"; };
+		AA000170A0000000000000001 /* CanonicalJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanonicalJSON.swift; sourceTree = "<group>"; };
+		AA000171A0000000000000001 /* DeviceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceKeys.swift; sourceTree = "<group>"; };
+		AA000172A0000000000000001 /* EvidenceSigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvidenceSigner.swift; sourceTree = "<group>"; };
+		AA000180A0000000000000001 /* CloudSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSyncManager.swift; sourceTree = "<group>"; };
+		AA000190A0000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA0001910000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		/* Test files */
+		AA000400A0000000000000001 /* CanonicalJSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanonicalJSONTests.swift; sourceTree = "<group>"; };
+		AA000401A0000000000000001 /* CloudSyncManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSyncManagerTests.swift; sourceTree = "<group>"; };
+		AA000402A0000000000000001 /* EvidenceSignerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvidenceSignerTests.swift; sourceTree = "<group>"; };
+		AA000403A0000000000000001 /* GRDBDataPackProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRDBDataPackProviderTests.swift; sourceTree = "<group>"; };
+		AA000404A0000000000000001 /* PDFOptionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFOptionsTests.swift; sourceTree = "<group>"; };
+		AA000405A0000000000000001 /* StableStringifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StableStringifyTests.swift; sourceTree = "<group>"; };
+		AA000406A0000000000000001 /* VerifyEdgeFunctionStubTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEdgeFunctionStubTest.swift; sourceTree = "<group>"; };
+		AA000407A0000000000000001 /* ViewModelWXApplyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelWXApplyTests.swift; sourceTree = "<group>"; };
+		AA000408A0000000000000001 /* WXChipColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXChipColorTests.swift; sourceTree = "<group>"; };
+		AA000409A0000000000000001 /* WeatherCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCacheTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AA0000200000000000000001 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = ( ); runOnlyForDeploymentPostprocessing = 0; };
+		AA000500F0000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000200B0000000000000001 /* PerfCalcCore in Frameworks */,
+				AA000300B0000000000000001 /* GRDB in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000500T0000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA0000210000000000000001 = {isa = PBXGroup; children = (
-			AA0000220000000000000001 /* PCalcs */,
-			AA0000F0000000000000001 /* Products */,
-		); sourceTree = "<group>"; };
-		AA0000F0000000000000001 /* Products */ = {isa = PBXGroup; children = (
-			AA0000000000000000000001 /* PCalcs.app */,
-		); name = Products; sourceTree = "<group>"; };
-		AA0000220000000000000001 /* PCalcs */ = {isa = PBXGroup; children = (
-			AA0000230000000000000001 /* App */,
-			AA0000240000000000000001 /* Models */,
-			AA0000250000000000000001 /* Services */,
-			AA0000260000000000000001 /* Views */,
-			AA00000E0000000000000001 /* Info.plist */,
-		); path = PCalcs; sourceTree = SOURCE_ROOT; };
-		AA0000230000000000000001 /* App */ = {isa = PBXGroup; children = (
-			AA0000010000000000000001 /* PCalcsApp.swift */,
-			AA00000C0000000000000001 /* ServiceLocator.swift */,
-		); path = App; sourceTree = "<group>"; };
-		AA0000240000000000000001 /* Models */ = {isa = PBXGroup; children = (
-			AA00000A0000000000000001 /* InputModels.swift */,
-			AA00000B0000000000000001 /* OutputModels.swift */,
-		); path = Models; sourceTree = "<group>"; };
-		AA0000250000000000000001 /* Services */ = {isa = PBXGroup; children = (
-			AA0000070000000000000001 /* PerformanceCalculatorAdapter.swift */,
-			AA0000080000000000000001 /* DataPackManager.swift */,
-			AA0000090000000000000001 /* PDFExportService.swift */,
-			AA0000060000000000000001 /* PerformanceViewModel.swift */,
-			AA00000D0000000000000001 /* CoreShims.swift */,
-		); path = Services; sourceTree = "<group>"; };
-		AA0000260000000000000001 /* Views */ = {isa = PBXGroup; children = (
-			AA0000020000000000000001 /* ContentView.swift */,
-			AA0000030000000000000001 /* PerformanceFormView.swift */,
-			AA0000040000000000000001 /* ResultsView.swift */,
-			AA0000050000000000000001 /* AircraftProfileView.swift */,
-		); path = Views; sourceTree = "<group>"; };
+		AA000600M0000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				AA000600P0000000000000001 /* PCalcs */,
+				AA000600T0000000000000001 /* PCalcsTests */,
+				AA000600R0000000000000001 /* Products */,
+				AA000600K0000000000000001 /* Frameworks */,
+				AA000650P0000000000000001 /* PerfCalcCore */,
+			);
+			sourceTree = "<group>";
+		};
+		AA000600K0000000000000001 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA000600R0000000000000001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000F0000000000000001 /* PCalcs.app */,
+				AA000000T0000000000000001 /* PCalcsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA000600P0000000000000001 /* PCalcs */ = {
+			isa = PBXGroup;
+			children = (
+				AA000601P0000000000000001 /* App */,
+				AA000602P0000000000000001 /* Models */,
+				AA000603P0000000000000001 /* Services */,
+				AA000604P0000000000000001 /* Views */,
+				AA000605P0000000000000001 /* Weather */,
+				AA000606P0000000000000001 /* Evidence */,
+				AA000607P0000000000000001 /* Cloud */,
+				AA000190A0000000000000001 /* Assets.xcassets */,
+				AA0001910000000000000001 /* Info.plist */,
+			);
+			path = PCalcs;
+			sourceTree = "<group>";
+		};
+		AA000601P0000000000000001 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AA0001000000000000000001 /* PCalcsApp.swift */,
+				AA0001020000000000000001 /* ServiceLocator.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AA000602P0000000000000001 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA0001040000000000000001 /* InputModels.swift */,
+				AA0001060000000000000001 /* OutputModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AA000603P0000000000000001 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AA0001080000000000000001 /* AirportStore.swift */,
+				AA000110A0000000000000001 /* BFLCheck.swift */,
+				AA000111A0000000000000001 /* CompanyLimitsEngine.swift */,
+				AA000112A0000000000000001 /* CoreShims.swift */,
+				AA000113A0000000000000001 /* CorrectionsEngine.swift */,
+				AA000114A0000000000000001 /* DataPackManager.swift */,
+				AA000115A0000000000000001 /* ErrorToastManager.swift */,
+				AA000116A0000000000000001 /* GRDBDataPackProvider.swift */,
+				AA000117A0000000000000001 /* Haptics.swift */,
+				AA000118A0000000000000001 /* HistoryStore.swift */,
+				AA000119A0000000000000001 /* Logger.swift */,
+				AA000120A0000000000000001 /* ObstacleEngine.swift */,
+				AA000121A0000000000000001 /* PCalcsLogger.swift */,
+				AA000122A0000000000000001 /* PDFExportOptions.swift */,
+				AA000123A0000000000000001 /* PDFExportService.swift */,
+				AA000124A0000000000000001 /* PerfMeter.swift */,
+				AA000125A0000000000000001 /* PerformanceCalculatorAdapter.swift */,
+				AA000126A0000000000000001 /* PerformanceViewModel.swift */,
+				AA000127A0000000000000001 /* SettingsStore.swift */,
+				AA000128A0000000000000001 /* Units.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AA000604P0000000000000001 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA000130A0000000000000001 /* AboutView.swift */,
+				AA000131A0000000000000001 /* AdvancedDetailsView.swift */,
+				AA000132A0000000000000001 /* AircraftProfileView.swift */,
+				AA000133A0000000000000001 /* BannerView.swift */,
+				AA000134A0000000000000001 /* ContentView.swift */,
+				AA000135A0000000000000001 /* EvidenceBadgeView.swift */,
+				AA000136A0000000000000001 /* HistoryView.swift */,
+				AA000137A0000000000000001 /* HomeView.swift */,
+				AA000138A0000000000000001 /* LimitingDetailsView.swift */,
+				AA000139A0000000000000001 /* ModeBarView.swift */,
+				AA000140A0000000000000001 /* NewCalculationView.swift */,
+				AA000141A0000000000000001 /* OnboardingView.swift */,
+				AA000142A0000000000000001 /* PerfDebugView.swift */,
+				AA000143A0000000000000001 /* PerformanceFormView.swift */,
+				AA000144A0000000000000001 /* ResultsView.swift */,
+				AA000145A0000000000000001 /* RunwayMarginBar.swift */,
+				AA000146A0000000000000001 /* RunwayPickerView.swift */,
+				AA000147A0000000000000001 /* SettingsView.swift */,
+				AA000148A0000000000000001 /* SplashView.swift */,
+				AA000149A0000000000000001 /* ValidationView.swift */,
+				AA000150A0000000000000001 /* WXChipView.swift */,
+				AA000151A0000000000000001 /* WhatIfSheet.swift */,
+				AA000152A0000000000000001 /* WindRunwayTile.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AA000605P0000000000000001 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				AA000160A0000000000000001 /* AirportWX.swift */,
+				AA000161A0000000000000001 /* DensityAltitude.swift */,
+				AA000162A0000000000000001 /* RemoteWeatherProvider.swift */,
+				AA000163A0000000000000001 /* WeatherCache.swift */,
+				AA000164A0000000000000001 /* WeatherProvider.swift */,
+				AA000165A0000000000000001 /* WindMath.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		AA000606P0000000000000001 /* Evidence */ = {
+			isa = PBXGroup;
+			children = (
+				AA000170A0000000000000001 /* CanonicalJSON.swift */,
+				AA000171A0000000000000001 /* DeviceKeys.swift */,
+				AA000172A0000000000000001 /* EvidenceSigner.swift */,
+			);
+			path = Evidence;
+			sourceTree = "<group>";
+		};
+		AA000607P0000000000000001 /* Cloud */ = {
+			isa = PBXGroup;
+			children = (
+				AA000180A0000000000000001 /* CloudSyncManager.swift */,
+			);
+			path = Cloud;
+			sourceTree = "<group>";
+		};
+		AA000600T0000000000000001 /* PCalcsTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA000400A0000000000000001 /* CanonicalJSONTests.swift */,
+				AA000401A0000000000000001 /* CloudSyncManagerTests.swift */,
+				AA000402A0000000000000001 /* EvidenceSignerTests.swift */,
+				AA000403A0000000000000001 /* GRDBDataPackProviderTests.swift */,
+				AA000404A0000000000000001 /* PDFOptionsTests.swift */,
+				AA000405A0000000000000001 /* StableStringifyTests.swift */,
+				AA000406A0000000000000001 /* VerifyEdgeFunctionStubTest.swift */,
+				AA000407A0000000000000001 /* ViewModelWXApplyTests.swift */,
+				AA000408A0000000000000001 /* WXChipColorTests.swift */,
+				AA000409A0000000000000001 /* WeatherCacheTests.swift */,
+			);
+			path = PCalcsTests;
+			sourceTree = "<group>";
+		};
+		AA000650P0000000000000001 /* PerfCalcCore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PerfCalcCore;
+			path = PerfCalcCore;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AA0000A0000000000000001 /* PCalcs */ = {isa = PBXNativeTarget; buildConfigurationList = AA0000E0000000000000001 /* Build configuration list for PBXNativeTarget "PCalcs" */; buildPhases = (
-			AA0000200000000000000001 /* Frameworks */,
-			AA0000B0000000000000001 /* Sources */,
-			AA0000C0000000000000001 /* Resources */,
-		); buildRules = ( ); dependencies = ( ); name = PCalcs; productName = PCalcs; productReference = AA0000000000000000000001 /* PCalcs.app */; productType = "com.apple.product-type.application"; };
+		AA000700A0000000000000001 /* PCalcs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA000800A0000000000000001 /* Build configuration list for PBXNativeTarget "PCalcs" */;
+			buildPhases = (
+				AA000710A0000000000000001 /* Sources */,
+				AA000500F0000000000000001 /* Frameworks */,
+				AA000720A0000000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PCalcs;
+			packageProductDependencies = (
+				AA000200A0000000000000001 /* PerfCalcCore */,
+				AA000300A0000000000000001 /* GRDB */,
+			);
+			productName = PCalcs;
+			productReference = AA000000F0000000000000001 /* PCalcs.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA000700T0000000000000001 /* PCalcsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA000800T0000000000000001 /* Build configuration list for PBXNativeTarget "PCalcsTests" */;
+			buildPhases = (
+				AA000710T0000000000000001 /* Sources */,
+				AA000500T0000000000000001 /* Frameworks */,
+				AA000720T0000000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA000730T0000000000000001 /* PBXTargetDependency */,
+			);
+			name = PCalcsTests;
+			productName = PCalcsTests;
+			productReference = AA000000T0000000000000001 /* PCalcsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AA0000270000000000000001 /* Project object */ = {isa = PBXProject; attributes = { LastSwiftUpdateCheck = 1510; LastUpgradeCheck = 1510; ORGANIZATIONNAME = "EFB Labs"; TargetAttributes = { AA0000A0000000000000001 = { CreatedOnToolsVersion = 15.0; }; }; }; buildConfigurationList = AA0000280000000000000001 /* Build configuration list for PBXProject "PCalcs" */; compatibilityVersion = "Xcode 13.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = ( en ); mainGroup = AA0000210000000000000001; productRefGroup = AA0000F0000000000000001 /* Products */; projectDirPath = ""; projectRoot = ""; targets = ( AA0000A0000000000000001 /* PCalcs */ ); };
+		AA000900P0000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1510;
+				LastUpgradeCheck = 1510;
+				ORGANIZATIONNAME = "EFB Labs";
+				TargetAttributes = {
+					AA000700A0000000000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					AA000700T0000000000000001 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = AA000700A0000000000000001;
+					};
+				};
+			};
+			buildConfigurationList = AA000900C0000000000000001 /* Build configuration list for PBXProject "PCalcs" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AA000600M0000000000000001;
+			packageReferences = (
+				AA000200R0000000000000001 /* XCLocalSwiftPackageReference "PerfCalcCore" */,
+				AA000300R0000000000000001 /* XCRemoteSwiftPackageReference "GRDB" */,
+			);
+			productRefGroup = AA000600R0000000000000001 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA000700A0000000000000001 /* PCalcs */,
+				AA000700T0000000000000001 /* PCalcsTests */,
+			);
+		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AA0000C0000000000000001 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (
-			AA00001D0000000000000001 /* Info.plist in Resources */,
-		); runOnlyForDeploymentPostprocessing = 0; };
+		AA000720A0000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000190B0000000000000001 /* Assets.xcassets in Resources */,
+				AA000191B0000000000000001 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000720T0000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AA0000B0000000000000001 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (
-			AA0000100000000000000001 /* PCalcsApp.swift in Sources */,
-			AA0000110000000000000001 /* ContentView.swift in Sources */,
-			AA0000120000000000000001 /* PerformanceFormView.swift in Sources */,
-			AA0000130000000000000001 /* ResultsView.swift in Sources */,
-			AA0000140000000000000001 /* AircraftProfileView.swift in Sources */,
-			AA0000150000000000000001 /* PerformanceViewModel.swift in Sources */,
-			AA0000160000000000000001 /* PerformanceCalculatorAdapter.swift in Sources */,
-			AA0000170000000000000001 /* DataPackManager.swift in Sources */,
-			AA0000180000000000000001 /* PDFExportService.swift in Sources */,
-			AA0000190000000000000001 /* InputModels.swift in Sources */,
-			AA00001A0000000000000001 /* OutputModels.swift in Sources */,
-			AA00001B0000000000000001 /* ServiceLocator.swift in Sources */,
-			AA00001C0000000000000001 /* CoreShims.swift in Sources */,
-		); runOnlyForDeploymentPostprocessing = 0; };
+		AA000710A0000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0001010000000000000001 /* PCalcsApp.swift in Sources */,
+				AA0001030000000000000001 /* ServiceLocator.swift in Sources */,
+				AA0001050000000000000001 /* InputModels.swift in Sources */,
+				AA0001070000000000000001 /* OutputModels.swift in Sources */,
+				AA0001090000000000000001 /* AirportStore.swift in Sources */,
+				AA000110B0000000000000001 /* BFLCheck.swift in Sources */,
+				AA000111B0000000000000001 /* CompanyLimitsEngine.swift in Sources */,
+				AA000112B0000000000000001 /* CoreShims.swift in Sources */,
+				AA000113B0000000000000001 /* CorrectionsEngine.swift in Sources */,
+				AA000114B0000000000000001 /* DataPackManager.swift in Sources */,
+				AA000115B0000000000000001 /* ErrorToastManager.swift in Sources */,
+				AA000116B0000000000000001 /* GRDBDataPackProvider.swift in Sources */,
+				AA000117B0000000000000001 /* Haptics.swift in Sources */,
+				AA000118B0000000000000001 /* HistoryStore.swift in Sources */,
+				AA000119B0000000000000001 /* Logger.swift in Sources */,
+				AA000120B0000000000000001 /* ObstacleEngine.swift in Sources */,
+				AA000121B0000000000000001 /* PCalcsLogger.swift in Sources */,
+				AA000122B0000000000000001 /* PDFExportOptions.swift in Sources */,
+				AA000123B0000000000000001 /* PDFExportService.swift in Sources */,
+				AA000124B0000000000000001 /* PerfMeter.swift in Sources */,
+				AA000125B0000000000000001 /* PerformanceCalculatorAdapter.swift in Sources */,
+				AA000126B0000000000000001 /* PerformanceViewModel.swift in Sources */,
+				AA000127B0000000000000001 /* SettingsStore.swift in Sources */,
+				AA000128B0000000000000001 /* Units.swift in Sources */,
+				AA000130B0000000000000001 /* AboutView.swift in Sources */,
+				AA000131B0000000000000001 /* AdvancedDetailsView.swift in Sources */,
+				AA000132B0000000000000001 /* AircraftProfileView.swift in Sources */,
+				AA000133B0000000000000001 /* BannerView.swift in Sources */,
+				AA000134B0000000000000001 /* ContentView.swift in Sources */,
+				AA000135B0000000000000001 /* EvidenceBadgeView.swift in Sources */,
+				AA000136B0000000000000001 /* HistoryView.swift in Sources */,
+				AA000137B0000000000000001 /* HomeView.swift in Sources */,
+				AA000138B0000000000000001 /* LimitingDetailsView.swift in Sources */,
+				AA000139B0000000000000001 /* ModeBarView.swift in Sources */,
+				AA000140B0000000000000001 /* NewCalculationView.swift in Sources */,
+				AA000141B0000000000000001 /* OnboardingView.swift in Sources */,
+				AA000142B0000000000000001 /* PerfDebugView.swift in Sources */,
+				AA000143B0000000000000001 /* PerformanceFormView.swift in Sources */,
+				AA000144B0000000000000001 /* ResultsView.swift in Sources */,
+				AA000145B0000000000000001 /* RunwayMarginBar.swift in Sources */,
+				AA000146B0000000000000001 /* RunwayPickerView.swift in Sources */,
+				AA000147B0000000000000001 /* SettingsView.swift in Sources */,
+				AA000148B0000000000000001 /* SplashView.swift in Sources */,
+				AA000149B0000000000000001 /* ValidationView.swift in Sources */,
+				AA000150B0000000000000001 /* WXChipView.swift in Sources */,
+				AA000151B0000000000000001 /* WhatIfSheet.swift in Sources */,
+				AA000152B0000000000000001 /* WindRunwayTile.swift in Sources */,
+				AA000160B0000000000000001 /* AirportWX.swift in Sources */,
+				AA000161B0000000000000001 /* DensityAltitude.swift in Sources */,
+				AA000162B0000000000000001 /* RemoteWeatherProvider.swift in Sources */,
+				AA000163B0000000000000001 /* WeatherCache.swift in Sources */,
+				AA000164B0000000000000001 /* WeatherProvider.swift in Sources */,
+				AA000165B0000000000000001 /* WindMath.swift in Sources */,
+				AA000170B0000000000000001 /* CanonicalJSON.swift in Sources */,
+				AA000171B0000000000000001 /* DeviceKeys.swift in Sources */,
+				AA000172B0000000000000001 /* EvidenceSigner.swift in Sources */,
+				AA000180B0000000000000001 /* CloudSyncManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000710T0000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000400B0000000000000001 /* CanonicalJSONTests.swift in Sources */,
+				AA000401B0000000000000001 /* CloudSyncManagerTests.swift in Sources */,
+				AA000402B0000000000000001 /* EvidenceSignerTests.swift in Sources */,
+				AA000403B0000000000000001 /* GRDBDataPackProviderTests.swift in Sources */,
+				AA000404B0000000000000001 /* PDFOptionsTests.swift in Sources */,
+				AA000405B0000000000000001 /* StableStringifyTests.swift in Sources */,
+				AA000406B0000000000000001 /* VerifyEdgeFunctionStubTest.swift in Sources */,
+				AA000407B0000000000000001 /* ViewModelWXApplyTests.swift in Sources */,
+				AA000408B0000000000000001 /* WXChipColorTests.swift in Sources */,
+				AA000409B0000000000000001 /* WeatherCacheTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AA000730T0000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA000700A0000000000000001 /* PCalcs */;
+			targetProxy = AA000730P0000000000000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXContainerItemProxy section */
+		AA000730P0000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA000900P0000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA000700A0000000000000001;
+			remoteInfo = PCalcs;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin XCBuildConfiguration section */
-		AA0000290000000000000001 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = YES; SWIFT_VERSION = 5.0; };
-			name = Debug; };
-		AA00002A0000000000000001 /* Release */ = {isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = YES; SWIFT_VERSION = 5.0; };
-			name = Release; };
-		AA00002B0000000000000001 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {
+		AA000900C1000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -131,25 +565,63 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_NULLABILITY = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PCalcs/Info.plist;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.efblabs.PCalcs;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
-				SUPPORTS_MACCATALYST = NO;
-			}; name = Debug; };
-		AA00002C0000000000000001 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		AA000900C2000000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -157,36 +629,218 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_NULLABILITY = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.9;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA000800A1000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = PCalcs/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.efblabs.PCalcs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
 				SUPPORTS_MACCATALYST = NO;
-			}; name = Release; };
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA000800A2000000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = PCalcs/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.efblabs.PCalcs;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AA000800T1000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.efblabs.PCalcsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PCalcs.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PCalcs";
+			};
+			name = Debug;
+		};
+		AA000800T2000000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.efblabs.PCalcsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PCalcs.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PCalcs";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AA0000280000000000000001 /* Build configuration list for PBXProject "PCalcs" */ = {isa = XCConfigurationList; buildConfigurations = (
-			AA0000290000000000000001 /* Debug */,
-			AA00002A0000000000000001 /* Release */
-		); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
-		AA0000E0000000000000001 /* Build configuration list for PBXNativeTarget "PCalcs" */ = {isa = XCConfigurationList; buildConfigurations = (
-			AA00002B0000000000000001 /* Debug */,
-			AA00002C0000000000000001 /* Release */
-		); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		AA000900C0000000000000001 /* Build configuration list for PBXProject "PCalcs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA000900C1000000000000001 /* Debug */,
+				AA000900C2000000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA000800A0000000000000001 /* Build configuration list for PBXNativeTarget "PCalcs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA000800A1000000000000001 /* Debug */,
+				AA000800A2000000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA000800T0000000000000001 /* Build configuration list for PBXNativeTarget "PCalcsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA000800T1000000000000001 /* Debug */,
+				AA000800T2000000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA000200A0000000000000001 /* PerfCalcCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PerfCalcCore;
+		};
+		AA000300A0000000000000001 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA000300R0000000000000001 /* XCRemoteSwiftPackageReference "GRDB" */;
+			productName = GRDB;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		AA000200R0000000000000001 /* XCLocalSwiftPackageReference "PerfCalcCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = PerfCalcCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AA000300R0000000000000001 /* XCRemoteSwiftPackageReference "GRDB" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
-	rootObject = AA0000270000000000000001 /* Project object */;
+	rootObject = AA000900P0000000000000001 /* Project object */;
 }
