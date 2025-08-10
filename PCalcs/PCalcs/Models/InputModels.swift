@@ -39,8 +39,8 @@ public struct LandingFormInputs: Equatable {
     var antiIceOn: Bool = false
     
     // Computed properties for compatibility with PerformanceCalculatorAdapter
-    var headwindComponentMS: Double { windComponentKt * 0.514444 }
-    var runwaySlopePercent: Double { slopePercent }
+    public var headwindComponentMS: Double { windComponentKt * 0.514444 }
+    public var runwaySlopePercent: Double { slopePercent }
 
     func toCoreInputs() -> LandingInputs {
         LandingInputs(

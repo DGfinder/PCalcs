@@ -64,7 +64,7 @@
 		AA000172B0000000000000001 /* EvidenceSigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000172A0000000000000001 /* EvidenceSigner.swift */; };
 		AA000180B0000000000000001 /* CloudSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000180A0000000000000001 /* CloudSyncManager.swift */; };
 		AA000190B0000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA000190A0000000000000001 /* Assets.xcassets */; };
-		AA000191B0000000000000001 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA0001910000000000000001 /* Info.plist */; };
+        // AA000191B0000000000000001 /* Info.plist in Resources */ removed to avoid duplicate Info.plist in Copy Bundle Resources
 		AA000200B0000000000000001 /* PerfCalcCore in Frameworks */ = {isa = PBXBuildFile; productRef = AA000200A0000000000000001 /* PerfCalcCore */; };
 		AA000300B0000000000000001 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = AA000300A0000000000000001 /* GRDB */; };
 		/* Test files */
@@ -439,7 +439,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA000190B0000000000000001 /* Assets.xcassets in Resources */,
-				AA000191B0000000000000001 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

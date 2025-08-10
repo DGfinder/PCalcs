@@ -11,7 +11,7 @@ public final class RemoteWeatherProvider: WeatherProvider {
         self.cache = cache
     }
 
-    func fetch(icao: String, force: Bool) async throws -> AirportWX {
+    public func fetch(icao: String, force: Bool) async throws -> AirportWX {
         let uIcao = icao.uppercased()
         if !force, let cached = try cache.get(icao: uIcao), Date() < cached.expiry { return cached.wx }
         // Try remote
