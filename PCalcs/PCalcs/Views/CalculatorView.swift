@@ -110,21 +110,22 @@ struct CalculatorView: View {
                 showingResults = false
             }
         } message: {
-            Text("Takeoff Distance: \(calculateSimpleDistance()) m\n\nAdvanced calculations coming soon...")
+            let result = calculatePerformance()
+            Text(result.alertSummary)
         }
     }
     
-    // MARK: - Simple Calculation (Placeholder)
+    // MARK: - Performance Calculation
     
-    /// Simple placeholder calculation for demo purposes
-    private func calculateSimpleDistance() -> Int {
-        // Very basic calculation based on weight and temperature
-        let baseDistance: Double = 1200
-        let weightFactor = (aircraftWeight - 6000) * 0.1
-        let tempFactor = (temperature - 15) * 8
-        
-        let totalDistance = baseDistance + weightFactor + tempFactor
-        return Int(max(totalDistance, 800)) // Minimum 800m
+    private let performanceEngine = PerformanceEngine()
+    
+    /// Calculate realistic B1900D takeoff performance
+    private func calculatePerformance() -> TakeoffResult {
+        return performanceEngine.calculateTakeoffDistance(
+            weightKg: aircraftWeight,
+            temperatureC: temperature,
+            runwayLengthM: runwayLength
+        )
     }
 }
 
