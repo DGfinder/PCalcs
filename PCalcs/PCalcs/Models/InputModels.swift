@@ -1,7 +1,7 @@
 import Foundation
 import PerfCalcCore
 
-struct TakeoffFormInputs: Equatable {
+public struct TakeoffFormInputs: Equatable {
     var towKg: Double = 7000
     var pressureAltitudeFt: Double = 3000
     var oatC: Double = 20
@@ -28,7 +28,7 @@ struct TakeoffFormInputs: Equatable {
     }
 }
 
-struct LandingFormInputs: Equatable {
+public struct LandingFormInputs: Equatable {
     var ldwKg: Double = 6500
     var pressureAltitudeFt: Double = 3000
     var oatC: Double = 20

@@ -1,11 +1,12 @@
 import Foundation
+import PerfCalcCore
 
-protocol PerformanceCalculatorAdapting {
+public protocol PerformanceCalculatorAdapting {
     func calculateTakeoff(_ inputs: TakeoffFormInputs, provider: DataPackProvider, corrections: CorrectionsLookup?) throws -> (TakeoffDisplay, [String])
     func calculateLanding(_ inputs: LandingFormInputs, provider: DataPackProvider, corrections: CorrectionsLookup?) throws -> (LandingDisplay, [String])
 }
 
-final class PerformanceCalculatorAdapter: PerformanceCalculatorAdapting {
+public final class PerformanceCalculatorAdapter: PerformanceCalculatorAdapting {
     private let b1900Calc: PerformanceCalculator = B1900DPerformanceCalculator()
 
     func calculateTakeoff(_ inputs: TakeoffFormInputs, provider: DataPackProvider, corrections: CorrectionsLookup?) throws -> (TakeoffDisplay, [String]) {

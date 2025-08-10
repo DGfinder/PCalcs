@@ -1,6 +1,6 @@
 import Foundation
 
-struct TakeoffDisplay: Equatable, Identifiable {
+public struct TakeoffDisplay: Equatable, Identifiable {
     var id = UUID()
     var todrM: Double
     var asdrM: Double
@@ -12,7 +12,7 @@ struct TakeoffDisplay: Equatable, Identifiable {
     var limitingFactor: String
 }
 
-struct LandingDisplay: Equatable, Identifiable {
+public struct LandingDisplay: Equatable, Identifiable {
     var id = UUID()
     var ldrM: Double
     var vrefKt: Double

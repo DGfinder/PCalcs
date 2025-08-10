@@ -1,7 +1,7 @@
 import Foundation
 
 // MARK: - Correction Lookup Protocol
-protocol CorrectionsLookup {
+public protocol CorrectionsLookup {
     func breakpoints(corrType: String) throws -> [(x: Double, effect: Double)]
 }
 
@@ -11,7 +11,7 @@ enum CorrectionsError: Error {
 }
 
 // MARK: - Corrections Engine
-struct CorrectionsEngine {
+public struct CorrectionsEngine {
     /// Applies ordered corrections for takeoff distances (TODR/ASDR/BFL)
     /// Order: wind -> slope -> wet
     static func applyTakeoff(rawTODR: Double, rawASDR: Double, rawBFL: Double,

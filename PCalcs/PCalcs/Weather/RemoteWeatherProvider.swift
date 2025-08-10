@@ -1,6 +1,6 @@
 import Foundation
 
-final class RemoteWeatherProvider: WeatherProvider {
+public final class RemoteWeatherProvider: WeatherProvider {
     private let baseURL: URL
     private let session: URLSession
     private let cache: WeatherCache

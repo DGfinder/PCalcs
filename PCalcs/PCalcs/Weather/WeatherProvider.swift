@@ -1,5 +1,5 @@
 import Foundation
 
-protocol WeatherProvider {
+public protocol WeatherProvider {
     func fetch(icao: String, force: Bool) async throws -> AirportWX
 }

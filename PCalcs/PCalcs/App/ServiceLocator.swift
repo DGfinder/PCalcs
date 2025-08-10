@@ -1,4 +1,5 @@
 import Foundation
+import PerfCalcCore
 
 final class ServiceLocator: ObservableObject {
     let dataPackManager: DataPackManaging

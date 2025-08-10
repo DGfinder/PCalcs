@@ -1,13 +1,13 @@
 import Foundation
 import PerfCalcCore
 
-protocol DataPackManaging {
+public protocol DataPackManaging {
     var provider: DataPackProvider { get }
     func loadBundledIfNeeded() throws
     func currentVersion() -> String
 }
 
-final class DataPackManager: DataPackManaging {
+public final class DataPackManager: DataPackManaging {
     private let internalProvider: DataPackProvider
 
     init(provider: DataPackProvider = StubDataPackProvider()) {
