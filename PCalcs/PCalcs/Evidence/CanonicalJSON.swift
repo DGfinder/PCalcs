@@ -1,5 +1,57 @@
 import Foundation
 
+/// A type-erased wrapper for encoding/decoding Any values
+struct AnyCodable: Codable {
+    let value: Any
+    
+    init(_ value: Any) {
+        self.value = value
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        
+        if let intValue = try? container.decode(Int.self) {
+            value = intValue
+        } else if let doubleValue = try? container.decode(Double.self) {
+            value = doubleValue
+        } else if let boolValue = try? container.decode(Bool.self) {
+            value = boolValue
+        } else if let stringValue = try? container.decode(String.self) {
+            value = stringValue
+        } else if let arrayValue = try? container.decode([AnyCodable].self) {
+            value = arrayValue.map(\.value)
+        } else if let dictValue = try? container.decode([String: AnyCodable].self) {
+            value = dictValue.mapValues(\.value)
+        } else {
+            value = NSNull()
+        }
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        
+        switch value {
+        case let intValue as Int:
+            try container.encode(intValue)
+        case let doubleValue as Double:
+            try container.encode(doubleValue)
+        case let floatValue as Float:
+            try container.encode(Double(floatValue))
+        case let boolValue as Bool:
+            try container.encode(boolValue)
+        case let stringValue as String:
+            try container.encode(stringValue)
+        case let arrayValue as [Any]:
+            try container.encode(arrayValue.map(AnyCodable.init))
+        case let dictValue as [String: Any]:
+            try container.encode(dictValue.mapValues(AnyCodable.init))
+        default:
+            try container.encodeNil()
+        }
+    }
+}
+
 /// Provides deterministic JSON encoding for cryptographic hashing
 enum CanonicalJSON {
     /// Encodes any value to deterministic JSON bytes
@@ -89,6 +141,59 @@ struct HistoryEntryCanonical: Codable {
     let icao: String?
     let runway_ident: String?
     let registration: String
+    
+    enum CodingKeys: String, CodingKey {
+        case app_version, calc_version, pack_version
+        case inputsJSON, outputsJSON
+        case weatherRaw, overrideFlags, timestamps
+        case aircraft, icao, runway_ident, registration
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(app_version, forKey: .app_version)
+        try container.encode(calc_version, forKey: .calc_version)
+        try container.encode(pack_version, forKey: .pack_version)
+        
+        // Encode the [String: Any] dictionaries as raw JSON
+        let inputsData = try JSONSerialization.data(withJSONObject: inputsJSON)
+        let inputsDict = try JSONSerialization.jsonObject(with: inputsData) as! [String: Any]
+        try container.encode(AnyCodable(inputsDict), forKey: .inputsJSON)
+        
+        let outputsData = try JSONSerialization.data(withJSONObject: outputsJSON)
+        let outputsDict = try JSONSerialization.jsonObject(with: outputsData) as! [String: Any]
+        try container.encode(AnyCodable(outputsDict), forKey: .outputsJSON)
+        
+        try container.encodeIfPresent(weatherRaw, forKey: .weatherRaw)
+        try container.encode(overrideFlags, forKey: .overrideFlags)
+        try container.encode(timestamps, forKey: .timestamps)
+        try container.encode(aircraft, forKey: .aircraft)
+        try container.encodeIfPresent(icao, forKey: .icao)
+        try container.encodeIfPresent(runway_ident, forKey: .runway_ident)
+        try container.encode(registration, forKey: .registration)
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        app_version = try container.decode(String.self, forKey: .app_version)
+        calc_version = try container.decode(String.self, forKey: .calc_version)
+        pack_version = try container.decode(String.self, forKey: .pack_version)
+        
+        // Decode the JSON objects back to [String: Any]
+        let inputsAnyCodable = try container.decode(AnyCodable.self, forKey: .inputsJSON)
+        inputsJSON = inputsAnyCodable.value as? [String: Any] ?? [:]
+        
+        let outputsAnyCodable = try container.decode(AnyCodable.self, forKey: .outputsJSON)
+        outputsJSON = outputsAnyCodable.value as? [String: Any] ?? [:]
+        
+        weatherRaw = try container.decodeIfPresent(WeatherCanonical.self, forKey: .weatherRaw)
+        overrideFlags = try container.decode(OverrideFlags.self, forKey: .overrideFlags)
+        timestamps = try container.decode(Timestamps.self, forKey: .timestamps)
+        aircraft = try container.decode(String.self, forKey: .aircraft)
+        icao = try container.decodeIfPresent(String.self, forKey: .icao)
+        runway_ident = try container.decodeIfPresent(String.self, forKey: .runway_ident)
+        registration = try container.decode(String.self, forKey: .registration)
+    }
     
     struct WeatherCanonical: Codable {
         let metar_raw: String?

@@ -180,8 +180,8 @@ final class HistoryStore: HistoryStoring {
                 updatedItem.evidenceSignature = evidence.signature
                 updatedItem.devicePublicKey = evidence.publicKey
                 updatedItem.createdAt = Date()
-            } catch {
-                PCalcsLogger.error("evidence.generation.failed \(error.localizedDescription)")
+            } catch let evidenceError {
+                PCalcsLogger.error("evidence.generation.failed \(evidenceError.localizedDescription)")
             }
         }
         
