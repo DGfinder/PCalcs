@@ -30,16 +30,3 @@ func measure<T>(_ name: String, block: () -> T) -> T {
     PerfMeter.shared.log(name: name, ms: (end - start) * 1000)
     return result
 }
-
-struct PerfDebugView: View {
-    @ObservedObject var meter = PerfMeter.shared
-    var body: some View {
-        NavigationStack {
-            List(meter.samples) { s in
-                HStack { Text(s.name).foregroundColor(.white); Spacer(); Text(String(format: "%.1f ms", s.ms)).foregroundColor(.white) }
-            }
-            .navigationTitle("Perf")
-            .preferredColorScheme(.dark)
-        }
-    }
-}
